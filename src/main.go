@@ -1,7 +1,9 @@
 package main
 
 import (
+	"html/template"
 	"log"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 	"github.com/idiarso/belajar-git/src/api/middleware"
@@ -9,6 +11,15 @@ import (
 	"github.com/idiarso/belajar-git/src/api/services"
 	"github.com/idiarso/belajar-git/src/config"
 )
+
+type Post struct {
+	Title   string
+	Content string
+}
+
+type PageData struct {
+	Posts []Post
+}
 
 func main() {
 	// Load configuration
@@ -35,6 +46,18 @@ func main() {
 
 	// Setup routes
 	routes.APIRoutes(router, srv)
+
+	// Render index template
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		tmpl := template.Must(template.ParseFiles("index.gohtml"))
+		data := PageData{
+			Posts: []Post{
+				{Title: "Post 1", Content: "Content for post 1"},
+				{Title: "Post 2", Content: "Content for post 2"},
+			},
+		}
+		tmpl.ExecuteTemplate(w, "index", data)
+	})
 
 	// Start server
 	log.Printf("Server starting on port %s", cfg.Server.Port)
