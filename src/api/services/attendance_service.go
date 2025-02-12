@@ -1,7 +1,7 @@
 package services
 
 import (
-	"github.com/idiarso/belajar-git/src/config"
+	"github.com/idiarso/belajar-git/src/api/models"
 )
 
 type AttendanceService struct {
