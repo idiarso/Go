@@ -2,7 +2,7 @@ package services
 
 import (
     "errors"
-    "github.com/dgrijalva/jwt-go/v4"
+    "github.com/dgrijalva/jwt-go"
     "golang.org/x/crypto/bcrypt"
     "github.com/idiarso/belajar-git/src/api/models"
 )
