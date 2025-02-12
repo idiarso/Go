@@ -1,6 +1,6 @@
 package services
 
-import "github.com/idiarso/belajar-git/src/api/models"
+import "github.com/idiarso/belajar-git/api/src/api/models"
 
 // GenerateAttendanceReport generates a report for attendance
 func GenerateAttendanceReport() []models.AttendanceReport {
