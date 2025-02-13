@@ -1,7 +1,7 @@
 package services
 
 import (
-	"github.com/idiarso/belajar-git/src/api/models"
+	"github.com/idiarso/belajar-git/src/config"
 )
 
 type AttendanceService struct {
@@ -12,4 +12,8 @@ func NewAttendanceService(cfg *config.Config) *AttendanceService {
 	return &AttendanceService{
 		config: cfg,
 	}
+}
+
+func ExampleFunction() {
+	// Use config here
 }

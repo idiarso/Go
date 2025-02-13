@@ -1,6 +1,8 @@
 package services
 
-import "github.com/idiarso/belajar-git/api/src/api/models"
+import (
+	// "github.com/idiarso/belajar-git/api/src/api/models" // Removed unused import
+)
 
 var attendanceRecords []models.Attendance
 
